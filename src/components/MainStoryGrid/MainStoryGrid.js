@@ -12,6 +12,7 @@ import MainStory from '../MainStory';
 import SecondaryStory from '../SecondaryStory';
 import OpinionStory from '../OpinionStory';
 import Advertisement from '../Advertisement';
+import { COLORS } from '../../constants';
 
 const MainStoryGrid = () => {
   return (
@@ -23,7 +24,9 @@ const MainStoryGrid = () => {
       <SecondaryStorySection>
         <StoryList>
           {SECONDARY_STORIES.map((story, index) => (
-            <SecondaryStory key={story.id} {...story} />
+            <StoryWrapper key={story.id}>
+            <SecondaryStory  {...story} />
+            </StoryWrapper>
           ))}
         </StoryList>
       </SecondaryStorySection>
@@ -32,7 +35,9 @@ const MainStoryGrid = () => {
         <SectionTitle>Opinion</SectionTitle>
         <StoryList>
           {OPINION_STORIES.map((story, index) => (
-            <OpinionStory key={story.id} {...story} />
+            <StoryWrapper key={story.id}>
+            <OpinionStory  {...story} />
+            </StoryWrapper>
           ))}
         </StoryList>
       </OpinionSection>
@@ -43,6 +48,14 @@ const MainStoryGrid = () => {
     </Wrapper>
   );
 };
+
+const StoryWrapper = styled.div`
+  &:not(:last-of-type){
+  border-bottom: 2px solid ${COLORS.primary};
+  padding-bottom: 16px;
+  margin-bottom: 16px;
+  }
+`
 
 const Wrapper = styled.div`
   display: grid;
@@ -61,11 +74,15 @@ const MainStorySection = styled.section`
 
 const SecondaryStorySection = styled.section`
   grid-area: secondary-stories;
+
 `;
 
 const StoryList = styled.div`
   display: flex;
   flex-direction: column;
+
+  border: 3px solid ${COLORS.gray}
+
 `;
 
 const OpinionSection = styled.section`
