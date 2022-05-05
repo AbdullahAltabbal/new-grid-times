@@ -31,6 +31,7 @@ const Wrapper = styled.article`
     'heading'
     'abstract';
   grid-template-columns: 1fr;
+
   }
 `;
 
