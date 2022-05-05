@@ -51,7 +51,7 @@ const MainStoryGrid = () => {
 
 const StoryWrapper = styled.div`
   &:not(:last-of-type){
-  border-bottom: 2px solid ${COLORS.primary};
+  border-bottom: 1px solid ${COLORS.primary};
   padding-bottom: 16px;
   margin-bottom: 16px;
   }
