@@ -1,16 +1,15 @@
 import React from 'react';
 import styled from 'styled-components/macro';
-import { COLORS } from '../../constants';
 
 const OpinionStory = ({ id, title, author, avatar }) => {
   return (
     <a href={`/story/${id}`}>
       <Wrapper>
-        <Avatar alt="" src={avatar} />
         <div>
           <AuthorName>{author}</AuthorName>
           <ArticleTitle>{title}</ArticleTitle>
         </div>
+        <Avatar alt="" src={avatar} />
       </Wrapper>
     </a>
   );
@@ -18,7 +17,8 @@ const OpinionStory = ({ id, title, author, avatar }) => {
 
 const Wrapper = styled.article`
   color: var(--color-gray-900);
-  border-bottom: 20px solid ${COLORS.gray};
+  display: grid;
+  grid-template-columns: 1fr auto;
 `;
 
 const Avatar = styled.img`
